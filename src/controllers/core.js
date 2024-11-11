@@ -1,7 +1,7 @@
 const { folderExists } = require('../services/folderService.js');
 
 function myLogic() {
-  return folderExists();
+  console.log(folderExists());
 }
 
 module.exports = {
