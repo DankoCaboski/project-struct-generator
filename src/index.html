@@ -2,11 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <title>Project helper</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <h1>Project helper</h1>
+    <p>Esse utilitário pode te ajudar a criar de for automatizada a estrutura do seu projeto.</p>
+    <form>
+        <label for="projectNumber">Número do Projeto:</label>
+        <input type="number" id="projectNumber" name="projectNumber" required />
+        <br />
+        <label for="projectName">Nome do Projeto:</label>
+        <input type="text" id="projectName" name="projectName" required />
+        <br />
+        <input type="submit" value="Criar Projeto" />
+    </form>
   </body>
 </html>
