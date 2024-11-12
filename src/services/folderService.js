@@ -1,15 +1,25 @@
-const fs = require('fs').promises;
-const path = require('path');
+const fs = require('node:fs');
 
-async function folderExists(folderPath) {
+function folderExists(projctRootPath) {
+
   try {
-    fs.access(path.resolve("C:\\Users\\Willian\\Documents\\", folderPath));
+    return fs.existsSync(projctRootPath);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function createFolder(projctRootPath) {
+  try {
+    fs.mkdirSync(projctRootPath);
     return true;
-  } catch (error) {
+  } catch (err) {
+    console.error(err);
     return false;
   }
 }
 
 module.exports = {
-  folderExists
+  folderExists,
+  createFolder
 };
