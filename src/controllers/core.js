@@ -1,7 +1,7 @@
 const { folderExists, createFolder } = require('../services/folderService.js');
 const path = require('path');
 
-async function myLogic(projData) {
+async function generateProject(projData) {
 
   const projctRoot = projData.projectNumber + " - " + projData.projectName;
   const projctRootPath = path.join("\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA", projctRoot);
@@ -23,5 +23,5 @@ async function myLogic(projData) {
 }
 
 module.exports = {
-  myLogic
+  generateProject
 };
