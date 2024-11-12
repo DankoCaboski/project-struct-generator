@@ -31,8 +31,9 @@ app.whenReady().then(() => {
   createWindow();
 
   ipcMain.on('submit', (event, arg) => {
-    const result = myLogic(arg);
-    return result;
+    // const result = myLogic(arg);
+    console.log("chegada: ", arg);
+    // return result;
   });
 
 
