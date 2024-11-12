@@ -5,3 +5,39 @@ body {
   max-width: 38rem;
   padding: 2rem;
 }
+
+form {
+  display: grid;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: auto;
+  margin-bottom: 5vh;
+}
+
+input[type='submit'] {
+  padding: 0.5rem 1rem;
+  background-color: #3b95f5;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+}
+
+input[type='submit']:hover {
+  background-color: #054283;
+}
+
+#submitRegion {
+  display: grid;
+  justify-content: center;
+}

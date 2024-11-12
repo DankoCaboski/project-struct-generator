@@ -18,17 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.set('projectName', projectName);
 
     event.preventDefault();
-    
+
+    const status = document.getElementById('message');
+    status.innerHTML = 'Gerando a estrutura de pastas...';
+
     ipcRenderer.invoke('submit', Object.fromEntries(formData.entries())).then((rs) => {
-      const status = document.getElementById('message');
       
       if (rs.fault) {
-        status.innerHTML = 'Error creating folder';
+        status.innerHTML = 'Error ao criar a estrutura de pastas';
       } else{
         if (rs.exist) {
-          status.innerHTML = 'Folder already exists';
+          status.innerHTML = 'Já existe uma pasta com esse nome';
         } else {
-          status.innerHTML = 'Folder created';
+          status.innerHTML = 'Estrutura criada com sucesso';
         }
       }
 
