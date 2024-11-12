@@ -1,0 +1,11 @@
+{
+    "branchPath" :{
+        "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA"
+    },
+    "leafPath": {
+        "from": "\\\\AXIS-SERVER\\02_Projetos\\00_Axis\\#Documentos modelos",
+        "docName": "AXS_MOD_Relatório de atividades"
+    }
+
+
+}
