@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
 async function folderExists(folderPath) {
   try {
-    await fs.access(path.resolve("C:\\Users\\Willian\\Documents\\", folderPath));
+    fs.access(path.resolve("C:\\Users\\Willian\\Documents\\", folderPath));
     return true;
   } catch (error) {
     return false;
