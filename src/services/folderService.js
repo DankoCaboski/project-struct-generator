@@ -1,12 +1,15 @@
-const fs = require('fs').promises;
+const fs = require('node:fs');
 const path = require('path');
 
-async function folderExists(folderPath) {
+function folderExists(projData) {
+
+  const projctRoot = projData.projectNumber + " - " + projData.projectName;
+  const projctRootPath = path.join("C:\\Users\\Willian\\Documents\\", projctRoot);
+
   try {
-    fs.access(path.resolve("C:\\Users\\Willian\\Documents\\", folderPath));
-    return true;
-  } catch (error) {
-    return false;
+    return fs.existsSync(projctRootPath);
+  } catch (err) {
+    console.error(err);
   }
 }
 

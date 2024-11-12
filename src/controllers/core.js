@@ -1,7 +1,7 @@
 const { folderExists } = require('../services/folderService.js');
 
-async function myLogic(arg) {
-  const exists = folderExists(arg);
+async function myLogic(projData) {
+  const exists = folderExists(projData);
   console.log(exists);
   return exists;
 }
