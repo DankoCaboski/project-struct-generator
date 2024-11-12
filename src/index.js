@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const { myLogic } = require('./controllers/core.js');
+const { generateProject } = require('./controllers/core.js');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -29,7 +29,7 @@ const createWindow = () => {
     title:          "Loading..."
   });
 
-  loadingWindow.loadURL('file://' + __dirname + '/loadingAnimation.gif');
+  // loadingWindow.loadURL('file://' + __dirname + '/loadingAnimation.gif');
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
@@ -37,7 +37,7 @@ const createWindow = () => {
   mainWindow.webContents.once('did-finish-load', function ()
   {
       mainWindow.show();
-      loadingWindow.close();
+      // loadingWindow.close();
   });
 
   // Open the DevTools.
@@ -51,7 +51,7 @@ app.whenReady().then(() => {
   createWindow();
 
   ipcMain.handle('submit', (event, arg) => {
-    const result = myLogic(arg);
+    const result = generateProject(arg);
     return result;
   });
 
