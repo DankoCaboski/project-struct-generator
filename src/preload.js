@@ -19,7 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     event.preventDefault();
     
-    ipcRenderer.send('submit', Object.fromEntries(formData.entries()));
+    ipcRenderer.invoke('submit', Object.fromEntries(formData.entries())).then((rs) => {
+      const status = document.getElementById('message');
+      
+      if (rs.exist) {
+        status.innerHTML = 'Folder exists';
+      } else {
+        status.innerHTML = 'Folder created';
+      }
+    });
+    
   });
 
 });

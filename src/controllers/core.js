@@ -6,19 +6,26 @@ async function myLogic(projData) {
   const projctRoot = projData.projectNumber + " - " + projData.projectName;
   const projctRootPath = path.join("C:\\Users\\Willian\\Documents\\", projctRoot);
 
-  const exists = folderExists(projctRootPath);
+  var exists = folderExists(projctRootPath);
 
   if (exists) {
     console.log('Folder exists');
   } else {
     console.log('Folder does not exist');
     if (createFolder(projctRootPath)) {
+      exists = true;
       console.log('Folder created');
     } else {
       console.log('Failed to create folder');
     }
   }
-  return exists;
+  
+  const result = {
+    exist: exists,
+    projctRootPath: projctRootPath
+  };
+
+  return result;
 }
 
 module.exports = {

@@ -30,7 +30,7 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
 
-  ipcMain.on('submit', (event, arg) => {
+  ipcMain.handle('submit', (event, arg) => {
     const result = myLogic(arg);
     return result;
   });
