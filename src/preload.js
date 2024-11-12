@@ -22,11 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ipcRenderer.invoke('submit', Object.fromEntries(formData.entries())).then((rs) => {
       const status = document.getElementById('message');
       
-      if (rs.exist) {
-        status.innerHTML = 'Folder already exists';
-      } else {
-        status.innerHTML = 'Folder created';
+      if (rs.fault) {
+        status.innerHTML = 'Error creating folder';
+      } else{
+        if (rs.exist) {
+          status.innerHTML = 'Folder already exists';
+        } else {
+          status.innerHTML = 'Folder created';
+        }
       }
+
     });
     
   });
