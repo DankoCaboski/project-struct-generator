@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const status = document.getElementById('message');
       
       if (rs.exist) {
-        status.innerHTML = 'Folder exists';
+        status.innerHTML = 'Folder already exists';
       } else {
         status.innerHTML = 'Folder created';
       }

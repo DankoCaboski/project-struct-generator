@@ -4,18 +4,12 @@ const path = require('path');
 async function myLogic(projData) {
 
   const projctRoot = projData.projectNumber + " - " + projData.projectName;
-  const projctRootPath = path.join("C:\\Users\\Willian\\Documents\\", projctRoot);
+  const projctRootPath = path.join("\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA", projctRoot);
 
   var exists = folderExists(projctRootPath);
 
-  if (exists) {
-    console.log('Folder exists');
-  } else {
-    console.log('Folder does not exist');
-    if (createFolder(projctRootPath)) {
-      exists = true;
-      console.log('Folder created');
-    } else {
+  if (!exists) {
+    if (!createFolder(projctRootPath)) {
       console.log('Failed to create folder');
     }
   }
