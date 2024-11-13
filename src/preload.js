@@ -6,6 +6,11 @@ const { ipcRenderer } = require('electron');
 document.addEventListener('DOMContentLoaded', () => {
  
   const form = document.getElementById('myForm');
+  const toConfig = document.getElementById('toConfig');
+
+  var toHome = null;
+  var configForm = null;
+
   const status = document.getElementById('message');
   const projectNumber = document.getElementById('projectNumber'); 
 
@@ -38,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   projectNumber.addEventListener('input', (event) => {
-    const projectName = document.getElementById('projectName');
     const value = projectNumber.value;
 
     if (value < 0) {
@@ -48,6 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
       projectNumber.value = value;
       updateStatus(status, "Aguardando...");
     }
+  });
+
+  toConfig.addEventListener('click', (event) => {
+    window.location.href = './pages/config/config.html';
+  });
+
+  toHome.addEventListener('click', (event) => {
+    window.location.href = './index.html';
+  });
+
+  window.addEventListener('load', (event) => {
+    configForm = document.getElementById('configForm');
+    if (configForm) {
+      console.log('configForm');
+    }
+  });
+
+
+  configForm.addEventListener('submit', (event) => {
+    console.log('configForm');
   });
 
 });

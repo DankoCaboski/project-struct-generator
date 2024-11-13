@@ -3,18 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>Project helper</title>
+    <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="index.css" />
+
   </head>
   <body>
-    <h1>Project helper</h1>
+
+    <header>
+        <nav>
+            <button id="toConfig">Configurações</button>
+        </nav>
+        <div>
+            <h1>Project helper</h1>
+        </div>
+    </header>
+
     <p>Este utilitário pode te ajudar a criar de forma automatizada a estrutura do seu projeto.</p>
     <form id="myForm">
         <label for="projectNumber">Número do Projeto:</label>
         <input type="number" min="0" id="projectNumber" name="projectNumber" required />
-        <br />
+
         <label for="projectName">Nome do Projeto:</label>
         <input type="text" id="projectName" name="projectName" required />
-        <br />
+
         <div id="submitRegion">
             <input type="submit" value="Criar Projeto" />
         </div>
@@ -22,5 +33,11 @@
     <div id="status"></div>
         <p id="message">Aguardando...</p>
     </div>
+
+    <footer>
+      <p>Designed By <a href="https://github.com/DankoCaboski" target="_blank">Danko Caboski</a></p>
+    
+    </footer>
+
   </body>
 </html>
