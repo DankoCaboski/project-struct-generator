@@ -3,10 +3,11 @@
 
 const { ipcRenderer } = require('electron');
 
-
 document.addEventListener('DOMContentLoaded', () => {
  
   const form = document.getElementById('myForm');
+  const status = document.getElementById('message');
+  const projectNumber = document.getElementById('projectNumber'); 
 
   form.addEventListener('submit', (event) => {
 
@@ -19,18 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     event.preventDefault();
 
-    const status = document.getElementById('message');
-    status.innerHTML = 'Gerando a estrutura de pastas...';
+    updateStatus(status, "Gerando a estrutura de pastas..."); 
 
     ipcRenderer.invoke('submit', Object.fromEntries(formData.entries())).then((rs) => {
-      
       if (rs.fault) {
-        status.innerHTML = 'Error ao criar a estrutura de pastas';
+        updateStatus(status, "Error ao criar a estrutura de pastas");
       } else{
         if (rs.exist) {
-          status.innerHTML = 'Já existe uma pasta com esse nome';
+          updateStatus(status, "Já existe uma pasta com esse nome");
         } else {
-          status.innerHTML = 'Estrutura criada com sucesso';
+          updateStatus(status, "Estrutura criada com sucesso");
         }
       }
 
@@ -38,4 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
   });
 
+  projectNumber.addEventListener('input', (event) => {
+    const projectName = document.getElementById('projectName');
+    const value = projectNumber.value;
+
+    if (value < 0) {
+      projectNumber.value = '';
+      updateStatus(status, "O número do projeto não pode ser negativo");
+    } else {
+      projectNumber.value = value;
+      updateStatus(status, "Aguardando...");
+    }
+  });
+
 });
+
+function updateStatus(tag, msg) {
+  tag.innerHTML = String(msg);
+}
