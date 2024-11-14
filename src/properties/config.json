@@ -2,10 +2,53 @@
     "branchPath" :{
         "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA"
     },
-    "leafPath": {
+    "leaves": {
         "from": "\\\\AXIS-SERVER\\02_Projetos\\00_Axis\\#Documentos modelos",
-        "docName": "AXS_MOD_Relatório de atividades"
+        "docName": "AXS_MOD_Relatório de atividades",
+        "desiredLeaves": [
+            {
+                "name": "00 - Proposta Tecnica - Escopo - Caderno de Encargos",
+                "innerDocs": []
+            },
+            {
+                "name": "01 - kickoff",
+                "innerDocs": []
+            },
+            {
+                "name": "02 - ciclocrama",
+                "innerDocs": []
+            },
+            {
+                "name": "03- Projeto Mecanico",
+                "innerDocs": []
+            },
+            {
+                "name": "04 - Projeto Eletrico",
+                "innerDocs": []
+            },
+            {
+                "name": "05 - Programas de PLC ROBO e IHM",
+                "innerDocs": []
+            },
+            {
+                "name": "06 - Check List de atividades",
+                "innerDocs": []
+            },
+            {
+                "name": "07 - Status Report",
+                "innerDocs": []
+            },
+            {
+                "name": "08 - Relatorios e Manuais",
+                "innerDocs": []
+            },
+            {
+                "name": "Material bruto",
+                "innerDocs": []
+            }
+        ]
     }
+    
 
 
 }

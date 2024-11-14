@@ -24,7 +24,7 @@ function createFolder(projctRootPath) {
 }
 
 function importDocs(projctRootPath){
-  const docsPath = require("..\\properties\\config.json").leafPath.from;
+  const docsPath = require("..\\properties\\config.json").leaves.from;
 
   const docs = fs.readdirSync(docsPath);
   docs.forEach(doc => {
