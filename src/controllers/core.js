@@ -1,4 +1,5 @@
-const { folderExists, createFolder } = require('../services/folderService.js');
+const { console } = require('inspector');
+const { folderExists, createFolder, importDocs } = require('../services/folderService.js');
 const path = require('path');
 
 async function generateProject(projData) {
@@ -33,11 +34,18 @@ async function generateBranchFolder(projctRootPath) {
 
 async function generateLeafFolders(projctRootPath) {
 
-  const leafs = require("..\\properties\\config.json").leaves.desiredLeaves;
+  const leaves = require("..\\properties\\config.json").leaves.desiredLeaves;
 
-  leafs.forEach(leaf => {
+  leaves.forEach(leaf => {
     const leafPath = path.join(projctRootPath, leaf.name);
-    createFolder(leafPath);
+    leaf = createFolder(leafPath);
+
+    // if (leaf.innerDocs.length > 0) {
+    //   importDocs(leafPath);
+    // }
+
+    desiredLeaves
+
   });
 }
 
