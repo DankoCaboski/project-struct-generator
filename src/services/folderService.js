@@ -1,18 +1,27 @@
 const fs = require('node:fs');
+const SMB2 = require('smb2');
 const path = require('path');
 
-function folderExists(projctRootPath) {
+function folderExists(smb2Client, projctRootPath) {
 
   try {
-    return fs.existsSync(projctRootPath);
+    smb2Client.exists(projctRootPath, function (exists) {
+      return exists;
+    });
   } catch (err) {
     console.error(err);
   }
 }
 
-function createFolder(projctRootPath) {
+function createFolder(smb2Client, projctRootPath) {
   try {
-    fs.mkdirSync(projctRootPath);
+    smb2Client.createDirectory(projctRootPath, function (err) {
+      if (err) {
+        console.error(err);
+        return false;
+      }
+    });
+    // fs.mkdirSync(projctRootPath);
 
     return true;
   } catch (err) {

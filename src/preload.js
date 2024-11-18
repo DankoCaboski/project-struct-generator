@@ -28,8 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStatus(status, "Gerando a estrutura de pastas..."); 
 
     ipcRenderer.invoke('submit', Object.fromEntries(formData.entries())).then((rs) => {
-      if (rs.fault) {
-        updateStatus(status, "Error ao criar a estrutura de pastas");
+      console.log(rs);
+      for (const key in rs) {
+        if (rs.hasOwnProperty(key)) {
+          console.log(`${key}: ${rs[key]}`);
+        }
+      }
+      if (rs.error) {
+        updateStatus(status, rs.message);
       } else{
         if (rs.exist) {
           updateStatus(status, "Já existe uma pasta com esse nome");
@@ -67,11 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (configForm) {
       console.log('configForm');
     }
-  });
-
-
-  configForm.addEventListener('submit', (event) => {
-    console.log('configForm');
   });
 
 });

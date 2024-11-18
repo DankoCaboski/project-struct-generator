@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "project-struct-generator": "file:"
+    "project-struct-generator": "file:",
+    "smb2": "^0.2.11"
   }
 }

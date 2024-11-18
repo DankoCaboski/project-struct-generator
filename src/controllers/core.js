@@ -1,21 +1,41 @@
-const { console } = require('inspector');
+const SMB2 = require('smb2');
 const { folderExists, createFolder, importDocs } = require('../services/folderService.js');
 const path = require('path');
 
 async function generateProject(projData) {
-  const projctRoot = projData.projectNumber + " - " + projData.projectName;
-  const basePath = require("..\\properties\\config.json").branchPath.whereToCreate
-  const projctRootPath = path.join(basePath, projctRoot);
-
-  return generateBranchFolder(projctRootPath);
+  try {
+    const projctRoot = projData.projectNumber + " - " + projData.projectName;
+    const basePath = require("..\\properties\\config.json").branchPath.whereToCreate;
+  
+    const smb2Client = new SMB2({ 
+      share: basePath,
+      username: 'AXIS-SERVER',
+      password: '12345678'
+    });
+  
+    const projctRootPath = path.join(basePath, projctRoot);
+  
+    return generateBranchFolder(smb2Client, projctRootPath);
+  }
+  catch (err) {
+    const errorDetails = {
+      error: true,
+      message: err.message,
+      stack: err.stack,
+      projData: projData
+    };
+    console.error(err);
+    return errorDetails;
+  }
 }
 
-async function generateBranchFolder(projctRootPath) {
-  var exists = folderExists(projctRootPath);
+async function generateBranchFolder(smb2Client, projctRootPath) {
+  
+  var exists = folderExists(smb2Client, projctRootPath);
   var fault = false;
 
   if (!exists) {
-    if (!createFolder(projctRootPath)) {
+    if (!createFolder(smb2Client, projctRootPath)) {
       fault = true;
     }
     else {
@@ -44,7 +64,7 @@ async function generateLeafFolders(projctRootPath) {
     //   importDocs(leafPath);
     // }
 
-    desiredLeaves
+    // desiredLeaves
 
   });
 }
