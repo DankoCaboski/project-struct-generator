@@ -1,10 +1,13 @@
 # MVP: RPA para Geração Automática de Estrutura de Pastas
 
-Objetivo:
+## Tecnologias
+Este projeto foi desenvolvido utilizando [ElectronJS](https://www.electronjs.org/) 
+
+## Objetivo
 
 Desenvolver uma ferramenta de automação para criar uma estrutura de pastas padrão de forma automática, facilitando a organização e padronização de arquivos para novos projetos ou tarefas.
 
-Funcionalidades Básicas
+## Funcionalidades Básicas
 
 Parâmetros de Configuração: Recebe um conjunto de parâmetros de configuração para personalizar a estrutura de pastas, como o nome do projeto e tipos de arquivos específicos.
 
