@@ -1,6 +1,6 @@
 {
     "branchPath" :{
-        "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA"
+        "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos"
     },
     "leafPath": {
         "from": "\\\\AXIS-SERVER\\02_Projetos\\00_Axis\\#Documentos modelos",
