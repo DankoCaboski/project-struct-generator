@@ -1,6 +1,6 @@
 {
     "branchPath" :{
-        "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos\\0000_TesteRPA"
+        "whereToCreate": "\\\\AXIS-SERVER\\Documents\\02_Projetos"
     },
     "leaves": {
         "from": "\\\\AXIS-SERVER\\02_Projetos\\00_Axis\\#Documentos modelos",
@@ -24,10 +24,6 @@
             },
             {
                 "name": "04 - Projeto Eletrico",
-                "innerDocs": []
-            },
-            {
-                "name": "05 - Programas de PLC ROBO e IHM",
                 "innerDocs": []
             },
             {
