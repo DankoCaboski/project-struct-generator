@@ -10,6 +10,7 @@ const leafs = ["00 - Proposta Tecnica - Escopo - Caderno de Encargos",
                 "06 - Check List de atividades",
                 "07 - Status Report",
                 "08 - Relatorios e Manuais",
+                "09 - Simulação",
                 "Material bruto"];
 
 async function generateProject(projData) {
